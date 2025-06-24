@@ -1,5 +1,5 @@
 {
-  "name": "ini-reader",
+  "name": "read-ini",
   "version": "0.0.1",
   "description": "Very simple reader of INI files.",
   "main": "dist/index.js",
