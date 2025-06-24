@@ -82,4 +82,4 @@ This library recognizes section aliases `[section "alias"]`, and when specified,
 ### Global Sections
 
 Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
-The same goes if you have a section `global` as alias.
+The same goes if you have a section with `global` as alias.
