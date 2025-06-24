@@ -74,3 +74,12 @@ readIniFile('./file.ini', ({key, value, section}) => {
   }
 }
 ```
+
+### Section Aliases
+
+This library recognizes section aliases `[section "alias"]`, and when specified, the alias replaces the section name.
+
+### Global Sections
+
+Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
+The same goes if you have a section `global` as alias.
