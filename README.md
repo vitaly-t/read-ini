@@ -52,12 +52,12 @@ readIniFile('./file.ini'); //=> JSON object
 
 ### Value-type conversion
 
-You can pass in optional callback as the second parameter, to convert key-values to their correct types.
+You can pass in an optional callback, as the second parameter, to convert values.
 
 ```ts
 readIniFile('./file.ini', ({key, value, section}) => {
     if (key === 'DB_PORT') {
-        return parseInt(value); // convert to number
+        return parseInt(value); // convert to integer
     }
     return value; // else return the value
 });
@@ -77,9 +77,9 @@ readIniFile('./file.ini', ({key, value, section}) => {
 
 ### Section Aliases
 
-This library recognizes section aliases `[section "alias"]`, and when specified, the alias replaces the section name.
+Optional section aliases are supported: `[section "alias"]`, and those simply replace the section name.
 
 ### Global Sections
 
 Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
-The same goes if you have a section with `global` as alias.
+The same happens when you have a section with `global` as alias.
