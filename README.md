@@ -13,25 +13,64 @@ $ npm i read-ini
 
 ## Usage
 
-It exposes function `readIniFile`, which takes a file path as input, and returns a JSON object
-with all the variables as the output. And it does so synchronously.
+Function `readIniFile` takes an INI file path as input, and returns a JSON object
+with all the variables. And it does so synchronously.
 
 The library supports sections, with aliases, but without nesting.
+
+**Input-file example**
+
+```ini
+# full-line comment can start with #
+SHARED_VALUE = some text
+
+; full-line comment can start with ; 
+[database]
+DB_HOST = localhost
+DB_PORT = 123
+```
+
+Reading the file above...
 
 ```ts
 import {readIniFile} from 'read-ini';
 
-const result = readIniFile('./file.ini');
-//=> result is a JSON object with all the variables
+readIniFile('./file.ini');
 ```
 
-With value-type conversion:
+**Output:**
+
+```json
+{
+  SHARED_VALUE: 'some text',
+  database: {
+    DB_HOST: 'localhost',
+    DB_PORT: '123'
+  }
+}
+```
+
+### Value-type conversion
+
+You can pass in optional callback as the second parameter, to convert key-values to their correct types.
 
 ```ts
-const result = readIniFile('./file.ini', ({key, value, section}) => {
-    if (key === 'MY_INT_VALUE') {
+readIniFile('./file.ini', ({key, value, section}) => {
+    if (key === 'DB_PORT') {
         return parseInt(value); // convert to number
     }
     return value; // else return the value
 });
+```
+
+**Output:**
+
+```json
+{
+  SHARED_VALUE: 'some text',
+  database: {
+    DB_HOST: 'localhost',
+    DB_PORT: 123
+  }
+}
 ```
