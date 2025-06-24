@@ -35,7 +35,7 @@ Reading the file above...
 ```ts
 import {readIniFile} from 'read-ini';
 
-readIniFile('./file.ini');
+readIniFile('./file.ini'); //=> JSON object
 ```
 
 **Output:**
