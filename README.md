@@ -40,7 +40,7 @@ readIniFile('./file.ini');
 
 **Output:**
 
-```json
+```js
 {
   SHARED_VALUE: 'some text',
   database: {
@@ -65,7 +65,7 @@ readIniFile('./file.ini', ({key, value, section}) => {
 
 **Output:**
 
-```json
+```js
 {
   SHARED_VALUE: 'some text',
   database: {
