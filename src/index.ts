@@ -1,7 +1,7 @@
 import {readFileSync} from 'node:fs';
 
 /**
- * Type of data produced by `parseIniFile`
+ * Type of data produced by `readIniFile`
  */
 export type INI_Data<T> = { [name: string]: T | { [name: string]: T } };
 
@@ -14,14 +14,14 @@ export type INI_Data<T> = { [name: string]: T | { [name: string]: T } };
 export type INI_Section = { name: string, alias?: string };
 
 /**
- * Callback type for optional value converter used by `parseIniFile`.
+ * Callback type for optional value converter used by `readIniFile`.
  *
  * Note that `section` is `undefined` when it is global.
  */
 export type INI_ConvertCB<T> = (cb: { key: string, value: string, section?: INI_Section }) => T;
 
 /**
- * Loads and parses an INI file, with an optional value-type converter.
+ * Reads and parses an INI file, with an optional value-type converter.
  *
  * - section `[name]` namespaces are supported:
  *   - When a section appears multiple times, its inner values are extended.
@@ -33,7 +33,7 @@ export type INI_ConvertCB<T> = (cb: { key: string, value: string, section?: INI_
  * - the `value` is taken until the end of line
  * - lines that start with `;` or `#` are skipped
  */
-export function parseIniFile<T = string>(iniFile: string, cb?: INI_ConvertCB<T>): INI_Data<T> {
+export function readIniFile<T = string>(iniFile: string, cb?: INI_ConvertCB<T>): INI_Data<T> {
     const lines = readFileSync(iniFile, 'utf-8')
         .replace(/\r/g, '')
         .split('\n')

@@ -5,10 +5,6 @@
 
 A simplistic reader of INI files for NodeJS.
 
-It takes a file path as input, and returns a JSON object as the output, synchronously.
-
-It supports sections, with aliases, but without nesting.
-
 ## Install
 
 ```
@@ -17,17 +13,22 @@ $ npm i read-ini
 
 ## Usage
 
-```ts
-import {parseIniFile} from 'read-ini';
+It exposes function `readIniFile`, which takes a file path as input, and returns a JSON object
+with all the variables as the output. And it does so synchronously.
 
-const result = parseIniFile('./file.ini');
+The library supports sections, with aliases, but without nesting.
+
+```ts
+import {readIniFile} from 'read-ini';
+
+const result = readIniFile('./file.ini');
 //=> result is a JSON object with all the variables
 ```
 
 With value-type conversion:
 
 ```ts
-const result = parseIniFile('./file.ini', ({key, value, section}) => {
+const result = readIniFile('./file.ini', ({key, value, section}) => {
     if (key === 'MY_INT_VALUE') {
         return parseInt(value); // convert the number
     }

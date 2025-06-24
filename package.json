@@ -1,7 +1,7 @@
 {
   "name": "read-ini",
-  "version": "0.0.2",
-  "description": "Very simple reader of INI files.",
+  "version": "0.0.3",
+  "description": "Simple reader of INI files.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -21,10 +21,8 @@
     "email": "vitaly.tomilov@gmail.com"
   },
   "keywords": [
-    "connection",
-    "string",
-    "parser",
-    "generator"
+    "ini",
+    "reader"
   ],
   "author": {
     "name": "Vitaly Tomilov",
