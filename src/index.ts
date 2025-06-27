@@ -43,7 +43,7 @@ export function readIniFile<T = string>(iniFile: string, cb?: INI_ConvertCB<T>):
     const result: INI_Data<T> = {};
     let root: any = result, section: INI_Section | undefined;
     for (const a of lines) {
-        const m = a.match(/^\s*([\w$][\w.$]*)\s*=\s*(.*)/);
+        const m = a.match(/^\s*([\w$.-]+)\s*=\s*(.*)/);
         if (m) {
             const key = m[1], value = m[2];
             root[key] = typeof cb === 'function' ? cb({key, value, section}) : value;
