@@ -3,7 +3,7 @@
 [![ci](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml/badge.svg)](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml)
 [![Node Version](https://img.shields.io/badge/nodejs-20%20--%2024-green.svg?logo=node.js&style=flat)](https://nodejs.org)
 
-A simplistic reader of INI files for NodeJS.
+A simple reader and parser of INI files for NodeJS.
 
 ## Install
 
