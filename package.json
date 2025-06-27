@@ -1,7 +1,7 @@
 {
   "name": "read-ini",
   "version": "0.0.5",
-  "description": "Simple reader of INI files.",
+  "description": "Read and parse INI file",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -21,8 +21,11 @@
     "email": "vitaly.tomilov@gmail.com"
   },
   "keywords": [
+    "read",
     "ini",
-    "reader"
+    "parse",
+    "reader",
+    "parser"
   ],
   "author": {
     "name": "Vitaly Tomilov",
@@ -34,8 +37,8 @@
   },
   "devDependencies": {
     "@types/jest": "30.0.0",
-    "@types/node": "24.0.3",
-    "jest": "30.0.2",
+    "@types/node": "24.0.4",
+    "jest": "30.0.3",
     "ts-jest": "29.4.0",
     "typescript": "5.8.3"
   }
