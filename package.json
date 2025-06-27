@@ -1,6 +1,6 @@
 {
   "name": "read-ini",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Read and parse INI file",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,13 +11,13 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/vitaly-t/ini-reader",
+  "homepage": "https://github.com/vitaly-t/read-ini",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vitaly-t/ini-reader"
+    "url": "https://github.com/vitaly-t/read-ini"
   },
   "bugs": {
-    "url": "https://github.com/vitaly-t/ini-reader/issues",
+    "url": "https://github.com/vitaly-t/read-ini/issues",
     "email": "vitaly.tomilov@gmail.com"
   },
   "keywords": [
