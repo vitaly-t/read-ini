@@ -12,7 +12,7 @@ describe('readIniFile', () => {
     });
     it('must process sections', () => {
         const result = readIniFile(`${inputsFolder}/complex.ini`);
-        expect(result['my-section']).toEqual({'extra.value': '567'});
+        expect(result['my-section']).toEqual({'extra.value': '567', 'one-more': 'hello'});
     });
     it('must convert values', () => {
         const result = readIniFile(`${inputsFolder}/complex.ini`, ({key, value}) => {
