@@ -1,7 +1,7 @@
 import {readFileSync} from 'node:fs';
 
 /**
- * Type of data produced by `readIniFile`
+ * Type of data produced by `readIniFile` function.
  */
 export type INI_Data<T> = { [name: string]: T | { [name: string]: T } };
 
@@ -14,20 +14,20 @@ export type INI_Data<T> = { [name: string]: T | { [name: string]: T } };
 export type INI_Section = { name: string, alias?: string };
 
 /**
- * Callback type for optional value converter used by `readIniFile`.
+ * Callback type for optional value converter used by `readIniFile` function.
  *
  * Note that `section` is `undefined` when it is global.
  */
 export type INI_ConvertCB<T> = (cb: { key: string, value: string, section?: INI_Section }) => T;
 
 /**
- * Reads and parses an INI file, with an optional value-type converter.
+ * Reads and parses an INI (or `./env`) file, with an optional value-type converter.
  *
  * - section `[name]` namespaces are supported:
  *   - When a section appears multiple times, its inner values are extended.
  *   - Sections called `global` (case-insensitive) expose global variables.
  *   - Sections support aliasing: `[section "alias"]`, with the alias used as
- *     override for the section name, for namespace resolution.
+ *     override for the section name.
  * - each variable must be in the form of `name = value`
  * - spaces surrounding `=`, `value` or section names are ignored
  * - the `value` is taken until the end of line

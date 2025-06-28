@@ -3,7 +3,7 @@
 [![ci](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml/badge.svg)](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml)
 [![Node Version](https://img.shields.io/badge/nodejs-20%20--%2024-green.svg?logo=node.js&style=flat)](https://nodejs.org)
 
-A simple reader and parser of INI files for NodeJS.
+A simple reader and parser of `.ini` (or `.env`) files for NodeJS.
 
 ## Install
 
@@ -13,7 +13,7 @@ $ npm i read-ini
 
 ## Usage
 
-Function `readIniFile` takes an INI file path as input, and returns a JSON object
+Function `readIniFile` takes an `.ini` (or `.env`) file path as input, and returns a JSON object
 with all the variables. And it does so synchronously.
 
 The library supports sections, with aliases, but without nesting.
@@ -82,4 +82,4 @@ Optional section aliases are supported: `[section "alias"]`, and those simply re
 ### Global Sections
 
 Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
-The same happens when you have a section with `global` as alias.
+The same happens for any section with `global` as alias.
