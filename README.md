@@ -75,7 +75,9 @@ readIniFile('./file.ini', ({key, value, section}) => {
 }
 ```
 
-To set environment variable from the output, you can use this helper:
+### Environment Variables
+
+To set environment variables from the output, you can use this helper:
 
 ```ts
 function setEnvironmentVars(vars: { [name: string]: any }): void {
