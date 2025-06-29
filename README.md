@@ -75,6 +75,18 @@ readIniFile('./file.ini', ({key, value, section}) => {
 }
 ```
 
+To set environment variable from the output, you can use this helper:
+
+```ts
+function setEnvironmentVars(vars: { [name: string]: any }): void {
+    for (const [name, value] of Object.entries(vars)) {
+        if (typeof value !== 'object') {
+            process.env[name] = value;
+        }
+    }
+}
+```
+
 ### Section Aliases
 
 Optional section aliases are supported: `[section "alias"]`, and those simply replace the section name.
