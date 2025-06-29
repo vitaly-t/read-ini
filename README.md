@@ -18,7 +18,7 @@ with all the variables. And it does so synchronously.
 
 The library supports sections, with aliases, but without nesting.
 
-**Input-file example**
+**INI file example**
 
 ```ini
 # full-line comment can start with #
@@ -96,4 +96,4 @@ Optional section aliases are supported: `[section "alias"]`, and those simply re
 ### Global Sections
 
 Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
-The same happens for any section with `global` as alias.
+The same works for any section with `global` as alias.

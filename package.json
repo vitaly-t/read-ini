@@ -1,6 +1,6 @@
 {
   "name": "read-ini",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Read and parse INI or ENV files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
