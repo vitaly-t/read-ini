@@ -13,7 +13,7 @@ $ npm i read-ini
 
 ## Usage
 
-Function `readIniFile` takes an `.ini` (or `.env`) file path as input, and returns a JSON object
+Function [readIniFile] takes an `.ini` (or `.env`) file path as input, and returns a JSON object
 with all the variables. And it does so synchronously.
 
 The library supports sections, with aliases, but without nesting.
@@ -97,3 +97,5 @@ Optional section aliases are supported: `[section "alias"]`, and those simply re
 
 Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
 The same works for any section with `global` as alias.
+
+[readIniFile]:https://github.com/vitaly-t/read-ini/blob/main/src/index.ts#L36
