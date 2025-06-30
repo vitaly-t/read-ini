@@ -75,6 +75,15 @@ readIniFile('./file.ini', ({key, value, section}) => {
 }
 ```
 
+### Section Aliases
+
+Optional section aliases are supported: `[section "alias"]`, and those simply replace the section name.
+
+### Global Sections
+
+Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
+The same works for any section with `global` as alias.
+
 ### Environment Variables
 
 To set environment variables from the output, you can use this helper:
@@ -88,14 +97,5 @@ function setEnvironmentVars(vars: { [name: string]: any }): void {
     }
 }
 ```
-
-### Section Aliases
-
-Optional section aliases are supported: `[section "alias"]`, and those simply replace the section name.
-
-### Global Sections
-
-Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
-The same works for any section with `global` as alias.
 
 [readIniFile]:https://github.com/vitaly-t/read-ini/blob/main/src/index.ts#L36
