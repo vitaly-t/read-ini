@@ -1,9 +1,9 @@
 # read-ini
 
 [![ci](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml/badge.svg)](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml)
-[![Node Version](https://img.shields.io/badge/nodejs-20%20--%2024-green.svg?logo=node.js&style=flat)](https://nodejs.org)
+[![Node Version](https://img.shields.io/badge/nodejs-16%20--%2024-green.svg?logo=node.js&style=flat)](https://nodejs.org)
 
-A simple reader and parser of `.ini` (or `.env`) files for NodeJS.
+A simple reader and parser of `.ini` (or `.env`) text / files for NodeJS.
 
 ## Install
 
@@ -13,8 +13,10 @@ $ npm i read-ini
 
 ## Usage
 
-Function [readIniFile] takes an `.ini` (or `.env`) file path as input, and returns a JSON object
-with all the variables. And it does so synchronously.
+The entire API contains just two functions:
+
+* [readIni] - takes `.ini`/`.env`-like text content, parses it and returns a JSON object.
+* [readIniFile] - synchronously reads a text file and then forwards to [readIni].
 
 The library supports sections, with aliases, but without nesting.
 
@@ -40,13 +42,13 @@ readIniFile('./file.ini'); //=> JSON object
 
 **Output:**
 
-```js
+```ts
 {
-  SHARED_VALUE: 'some text',
-  database: {
-    DB_HOST: 'localhost',
-    DB_PORT: '123'
-  }
+    SHARED_VALUE: 'some text',
+    database: {
+        DB_HOST: 'localhost',
+        DB_PORT: '123'
+    }
 }
 ```
 
@@ -65,13 +67,13 @@ readIniFile('./file.ini', ({key, value, section}) => {
 
 **Output:**
 
-```js
+```ts
 {
-  SHARED_VALUE: 'some text',
-  database: {
+    SHARED_VALUE: 'some text',
+    database: {
     DB_HOST: 'localhost',
     DB_PORT: 123
-  }
+    }
 }
 ```
 
@@ -81,7 +83,8 @@ Optional section aliases are supported: `[section "alias"]`, and those simply re
 
 ### Global Sections
 
-Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an INI file.
+Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an
+INI file.
 The same works for any section with `global` as alias.
 
 ### Environment Variables
@@ -98,4 +101,6 @@ function setEnvironmentVars(vars: { [name: string]: any }): void {
 }
 ```
 
-[readIniFile]:https://github.com/vitaly-t/read-ini/blob/main/src/index.ts#L36
+[readIni]:https://github.com/vitaly-t/read-ini/blob/main/src/index.ts#L36
+
+[readIniFile]:https://github.com/vitaly-t/read-ini/blob/main/src/index.ts#L72

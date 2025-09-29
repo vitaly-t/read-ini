@@ -1,7 +1,7 @@
 import {readFileSync} from 'node:fs';
 
 /**
- * Type of data produced by `readIniFile` function.
+ * Type of data produced by `readIni` function.
  */
 export type INI_Data<T> = { [name: string]: T | { [name: string]: T } };
 
@@ -14,14 +14,14 @@ export type INI_Data<T> = { [name: string]: T | { [name: string]: T } };
 export type INI_Section = { name: string, alias?: string };
 
 /**
- * Callback type for optional value converter used by `readIniFile` function.
+ * Callback type for optional value converter used by `readIni` function.
  *
  * Note that `section` is `undefined` when it is global.
  */
 export type INI_ConvertCB<T> = (cb: { key: string, value: string, section?: INI_Section }) => T;
 
 /**
- * Reads and parses an INI (or `./env`) file, with an optional value-type converter.
+ * Parses an `.ini` or `.env` content, with an optional value-type converter.
  *
  * - section `[name]` namespaces are supported:
  *   - When a section appears multiple times, its inner values are extended.
@@ -33,8 +33,8 @@ export type INI_ConvertCB<T> = (cb: { key: string, value: string, section?: INI_
  * - the `value` is taken until the end of line
  * - lines that start with `;` or `#` are skipped
  */
-export function readIniFile<T = string>(iniFile: string, cb?: INI_ConvertCB<T>): INI_Data<T> {
-    const lines = readFileSync(iniFile, 'utf-8')
+export function readIni<T = string>(text: string, cb?: INI_ConvertCB<T>): INI_Data<T> {
+    const lines = text
         .replace(/\r/g, '')
         .split('\n')
         .map(a => a.trim())
@@ -62,4 +62,14 @@ export function readIniFile<T = string>(iniFile: string, cb?: INI_ConvertCB<T>):
         }
     }
     return result;
+}
+
+/**
+ * Reads and parses an INI (or `./env`) file, with an optional value-type converter.
+ *
+ * Underneath, it just reads the file and passes the text into the `readIni` function.
+ */
+export function readIniFile<T = string>(iniFile: string, cb?: INI_ConvertCB<T>): INI_Data<T> {
+    const text = readFileSync(iniFile, 'utf-8');
+    return readIni(text, cb);
 }
