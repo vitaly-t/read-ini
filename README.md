@@ -1,7 +1,7 @@
 # read-ini
 
 [![ci](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml/badge.svg)](https://github.com/vitaly-t/read-ini/actions/workflows/ci.yml)
-[![Node Version](https://img.shields.io/badge/nodejs-16%20--%2024-green.svg?logo=node.js&style=flat)](https://nodejs.org)
+[![Node Version](https://img.shields.io/badge/nodejs-18%20--%2024-green.svg?logo=node.js&style=flat)](https://nodejs.org)
 
 A simple reader and parser of `.ini` (or `.env`) text / files for NodeJS.
 
