@@ -13,7 +13,7 @@ $ npm i read-ini
 
 ## Usage
 
-The entire API contains just two functions:
+The API contains just two functions:
 
 * [readIni] - takes `.ini`/`.env`-like text content, parses it and returns a JSON object.
 * [readIniFile] - synchronously reads a text file and then forwards to [readIni].
@@ -42,7 +42,7 @@ readIniFile('./file.ini'); //=> JSON object
 
 **Output:**
 
-```ts
+```js
 {
     SHARED_VALUE: 'some text',
     database: {
@@ -67,12 +67,12 @@ readIniFile('./file.ini', ({key, value, section}) => {
 
 **Output:**
 
-```ts
+```js
 {
-    SHARED_VALUE: 'some text',
+    SHARED_VALUE: 'some text', 
     database: {
-    DB_HOST: 'localhost',
-    DB_PORT: 123
+        DB_HOST: 'localhost',
+        DB_PORT: 123
     }
 }
 ```
@@ -84,8 +84,7 @@ Optional section aliases are supported: `[section "alias"]`, and those simply re
 ### Global Sections
 
 Section name `global` is reserved (case-insensitive), to inject variables into the global scope from anywhere inside an
-INI file.
-The same works for any section with `global` as alias.
+INI file. The same works for any section with `global` as alias.
 
 ### Environment Variables
 

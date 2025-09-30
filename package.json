@@ -1,6 +1,6 @@
 {
   "name": "read-ini",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Read and parse INI or ENV files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,9 +24,7 @@
     "read",
     "ini",
     "env",
-    "parse",
-    "reader",
-    "parser"
+    "parse"
   ],
   "author": {
     "name": "Vitaly Tomilov",
@@ -34,7 +32,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "devDependencies": {
     "@types/jest": "30.0.0",
